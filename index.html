@@ -4,26 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fitness Tracker</title>
-
-  <!-- CSS Files -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Inline CSS for background color -->
-  <style>
-    body {
-      background-color: #dbdfdf; 
-    }
-  </style>
+  <style>body { background-color: #dbdfdf; }</style>
 </head>
 <body>
-
-  <!-- Header Section -->
   <header class="header-bg text-white text-center py-4">
     <h1><i class="fas fa-dumbbell bounce-icon"></i> Fitness Tracker</h1>
     <nav class="mt-3">
-      <!-- Navigation Links -->
       <a href="#progress" class="text-white mx-3">Progress</a>
       <a href="#graphics" class="text-white mx-3">Graphics</a>
       <a href="#about" class="text-white mx-3">About</a>
@@ -32,13 +21,9 @@
   </header>
 
   <main class="container my-5">
-
-    <!-- Workout Gallery Section -->
     <section id="gallery" class="mb-5">
       <h2 class="text-success text-center mb-4">Workout Information</h2>
       <div class="row g-4 justify-content-center">
-        
-        <!-- Workout Image Cards -->
         <div class="col-md-3">
           <div class="img-card">
             <img src="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2018/01/One-Arm-Dumbbell-Row-1109.jpg" alt="Workout 1" />
@@ -47,7 +32,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-md-3">
           <div class="img-card">
             <img src="https://his.gov.tr/uploads/his-blog/yoga-2.jpg" alt="Yoga" />
@@ -56,7 +40,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-md-3">
           <div class="img-card">
             <img src="https://www.endomondo.com/wp-content/uploads/2024/02/best-cardio-for-weight-loss-img.jpg" alt="Cardio" />
@@ -65,7 +48,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-md-3">
           <div class="img-card">
             <img src="https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/09/Shirtless-Man-Beard-Battle-Ropes-Smokey-Gym.jpg" alt="Battle Ropes" />
@@ -77,10 +59,8 @@
       </div>
     </section>
 
-    <!-- Progress Display Section -->
     <section id="progress" class="bg-light p-4 rounded shadow text-center mb-5">
       <h2>Today's Progress</h2>
-      <!-- Display filled by JavaScript -->
       <p id="progress-workout">Workout Type: <strong>—</strong></p>
       <p id="progress-duration">Duration: <strong>—</strong></p>
       <p id="progress-gender">Gender: <strong>—</strong></p>
@@ -88,13 +68,10 @@
       <p id="progress-calories">Calories Burned: <strong>—</strong></p>
     </section>
 
-    <!-- Workout Logging Form Section -->
     <section id="workout" class="bg-light p-4 rounded shadow mb-5">
       <h2>Log Your Workout</h2>
       <form id="workoutForm">
         <div class="row g-3">
-
-          <!-- Workout Type Selection -->
           <div class="col-md-6">
             <label class="form-label">Workout Type</label>
             <select id="type" class="form-select" required>
@@ -105,14 +82,10 @@
               <option>Battle Ropes</option>
             </select>
           </div>
-
-          <!-- Workout Duration -->
           <div class="col-md-6">
             <label class="form-label">Duration (min)</label>
             <input type="number" id="duration" class="form-control" required min="1" />
           </div>
-
-          <!-- Gender Selection -->
           <div class="col-md-6">
             <label class="form-label">Gender</label>
             <select id="gender" class="form-select" required>
@@ -121,29 +94,22 @@
               <option>Female</option>
             </select>
           </div>
-
-          <!-- Age Input -->
           <div class="col-md-6">
             <label class="form-label">Age</label>
             <input type="number" id="age" class="form-control" required min="1" />
           </div>
-
         </div>
-
-        <!-- Submit Button -->
         <div class="text-center mt-4">
           <button type="submit" class="btn btn-primary px-4">Submit</button>
         </div>
       </form>
 
-      <!-- Chart Section -->
       <div id="graphics" class="mt-5 text-center">
-        <h3 class="mb-4">Workout Duration Summary</h3>
+        <h3 class="mb-4">Workout Summary Chart</h3>
         <canvas id="workoutChart" style="max-width: 600px; margin: 0 auto; display: block;"></canvas>
       </div>
     </section>
 
-    <!-- About Us Section -->
     <section id="about" class="bg-light p-4 rounded shadow d-flex flex-column flex-md-row align-items-center">
       <img src="https://png.pngtree.com/element_our/sm/20171221/sm_5a3c024294ff5.jpg" alt="About" class="img-fluid" style="max-width: 300px; border-radius: 12px;" />
       <div class="ms-md-4 mt-4 mt-md-0">
@@ -155,20 +121,14 @@
         </p>
       </div>
     </section>
-
   </main>
 
-  <!-- Footer Section -->
   <footer class="bg-light text-center text-muted py-4">
     <p class="mb-1">&copy; 2025 Fitness Tracker. All rights reserved.</p>
-    
-    <!-- Footer Links -->
     <div class="mb-2">
       <a href="#" class="text-muted me-2">Privacy Policy</a> |
       <a href="#" class="text-muted ms-2">Top to Page</a>
     </div>
-
-    <!-- Contact Info -->
     <div>
       <a href="mailto:yesra8572@gmail.com" class="text-muted me-3">
         <i class="fa fa-envelope"></i> samuelroyjojo2711@gmail.com
@@ -177,19 +137,77 @@
         <i class="fa fa-phone"></i> +1 289 834 0661
       </a>
     </div>
-
-    <!-- Social Media Icons -->
     <div class="mt-2">
-      <a href="https://facebook.com" class="text-primary me-3"><i class="-facebook"></i></a>
-      <a href="https://twitter.com" class="text-info me-3"><i class="-twitter"></i></a>
-      <a href="https://instagram.com" class="text-danger"><i class="-instagram"></i></a>
+      <a href="https://facebook.com" class="text-primary me-3"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com" class="text-info me-3"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" class="text-danger"><i class="fab fa-instagram"></i></a>
     </div>
   </footer>
 
-  <!-- JavaScript Files -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
+  <script>
+    let workoutChart;
+    const MET_VALUES = {
+      "Dumbbell Row": 6,
+      "Yoga": 3,
+      "Cardio": 8,
+      "Battle Ropes": 10
+    };
 
+    document.getElementById("workoutForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const type = document.getElementById("type").value;
+      const duration = parseInt(document.getElementById("duration").value);
+      const gender = document.getElementById("gender").value;
+      const age = parseInt(document.getElementById("age").value);
+
+      const met = MET_VALUES[type] || 5;
+      const weight = gender === "Male" ? age * 1.1 : age * 1.0;
+      const hours = duration / 60;
+      const caloriesBurned = Math.round(met * weight * hours);
+      const loseWeightTarget = caloriesBurned + 300;
+      const gainMuscleTarget = Math.max(0, caloriesBurned - 150);
+
+      document.getElementById("progress-workout").innerHTML = `Workout Type: <strong>${type}</strong>`;
+      document.getElementById("progress-duration").innerHTML = `Duration: <strong>${duration} min</strong>`;
+      document.getElementById("progress-gender").innerHTML = `Gender: <strong>${gender}</strong>`;
+      document.getElementById("progress-age").innerHTML = `Age: <strong>${age}</strong>`;
+      document.getElementById("progress-calories").innerHTML = `Calories Burned: <strong>${caloriesBurned} kcal</strong>`;
+
+      const ctx = document.getElementById("workoutChart").getContext("2d");
+      if (workoutChart) {
+        workoutChart.data.datasets[0].data = [caloriesBurned, loseWeightTarget, gainMuscleTarget];
+        workoutChart.update();
+      } else {
+        workoutChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: ["Burned", "Target (Lose Wt)", "Target (Muscle Gain)"],
+            datasets: [{
+              label: "Calories (kcal)",
+              backgroundColor: ["#36a2eb", "#ffc107", "#4caf50"],
+              data: [caloriesBurned, loseWeightTarget, gainMuscleTarget]
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return `${context.label}: ${context.formattedValue} kcal`;
+                  }
+                }
+              }
+            },
+            scales: { y: { beginAtZero: true } }
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
+
