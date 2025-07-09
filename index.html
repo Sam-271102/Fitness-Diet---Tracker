@@ -10,14 +10,23 @@
   <style>body { background-color: #dbdfdf; }</style>
 </head>
 <body>
+  <script>
+    const user = JSON.parse(localStorage.getItem('fitnessUser'));
+    if (!user) window.location.href = 'login.html';
+  </script>
+
   <header class="header-bg text-white text-center py-4">
     <h1><i class="fas fa-dumbbell bounce-icon"></i> Fitness Tracker</h1>
     <nav class="mt-3">
       <a href="#progress" class="text-white mx-3">Progress</a>
       <a href="#graphics" class="text-white mx-3">Graphics</a>
-      <a href="#about" class="text-white mx-3">About</a>
+      <a href="#workout" class="text-white mx-3">Log Workout</a>
       <a href="dietpage.html" class="text-white mx-3">Diet</a>
+      <a href="weekly.html" class="text-white mx-3">Weekly</a>
+      <a href="login.html" class="text-white mx-3">Login</a>
+      <a href="signup.html" class="text-white mx-3">Sign Up</a>
     </nav>
+    <p class="mt-2">Welcome, <span id="userDisplay" class="fw-bold"></span> 👋</p>
   </header>
 
   <main class="container my-5">
@@ -59,7 +68,7 @@
       </div>
     </section>
 
-    <section id="progress" class="bg-light p-4 rounded shadow text-center mb-5">
+    <section id="progress" class="bg-white p-4 rounded shadow text-center mb-5">
       <h2>Today's Progress</h2>
       <p id="progress-workout">Workout Type: <strong>—</strong></p>
       <p id="progress-duration">Duration: <strong>—</strong></p>
@@ -68,8 +77,8 @@
       <p id="progress-calories">Calories Burned: <strong>—</strong></p>
     </section>
 
-    <section id="workout" class="bg-light p-4 rounded shadow mb-5">
-      <h2>Log Your Workout</h2>
+    <section id="workout" class="bg-white p-4 rounded shadow mb-5">
+      <h2 class="text-center mb-4">Customize Your Workout</h2>
       <form id="workoutForm">
         <div class="row g-3">
           <div class="col-md-6">
@@ -106,7 +115,7 @@
 
       <div id="graphics" class="mt-5 text-center">
         <h3 class="mb-4">Workout Summary Chart</h3>
-        <canvas id="workoutChart" style="max-width: 600px; margin: 0 auto; display: block;"></canvas>
+        <canvas id="workoutChart" style="width: 100%; max-width: 700px; height: 400px; margin: 0 auto;"></canvas>
       </div>
     </section>
 
@@ -147,6 +156,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
+    if (user && user.username) {
+      document.getElementById("userDisplay").textContent = user.username;
+    }
+
     let workoutChart;
     const MET_VALUES = {
       "Dumbbell Row": 6,
@@ -168,6 +181,9 @@
       const caloriesBurned = Math.round(met * weight * hours);
       const loseWeightTarget = caloriesBurned + 300;
       const gainMuscleTarget = Math.max(0, caloriesBurned - 150);
+
+      const workoutData = { type, duration, gender, age, caloriesBurned };
+      localStorage.setItem("userWorkout", JSON.stringify(workoutData));
 
       document.getElementById("progress-workout").innerHTML = `Workout Type: <strong>${type}</strong>`;
       document.getElementById("progress-duration").innerHTML = `Duration: <strong>${duration} min</strong>`;
@@ -210,4 +226,3 @@
   </script>
 </body>
 </html>
-
