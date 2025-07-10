@@ -2,13 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const User = require('./models/User');  // fixed import here (removed trailing '.')
+const User = require('./models/User');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json()); // for parsing application/json
+app.use(express.json()); 
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
@@ -26,7 +26,7 @@ app.post('/api/signup', async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ success: false, message: 'Email already exists' });
     }
-    const newUser = new User({ username, email, password }); // Hash password in real app!
+    const newUser = new User({ username, email, password }); 
     await newUser.save();
     res.json({ success: true });
   } catch (error) {
@@ -42,7 +42,7 @@ app.post('/api/login', async (req, res) => {
     return res.status(400).json({ error: 'Missing email or password' });
   }
   try {
-    const user = await User.findOne({ email, password }); // Hash & compare password in real app!
+    const user = await User.findOne({ email, password }); 
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
