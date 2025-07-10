@@ -27,8 +27,8 @@
     <h2 class="text-center mb-4">Fitness Tracker Login</h2>
     <form id="loginForm">
       <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" required />
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" required />
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
@@ -42,26 +42,29 @@
   </div>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    document.getElementById('loginForm').addEventListener('submit', e => {
       e.preventDefault();
-      const email = document.getElementById('email').value;
+      const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      fetch('http://localhost:3000/api/login', {
+      fetch('https://fitness-diet-tracker-henna.vercel.app/api/login', {  
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ username, password })
       })
-      .then(res => res.json())
+      .then(r => r.json())
       .then(data => {
-        if (data.username) {
-          localStorage.setItem('fitnessUser', JSON.stringify({ username: data.username, email: data.email }));
+        if (data.success) {
+          localStorage.setItem('fitnessUser', JSON.stringify({ username: data.username }));
           window.location.href = 'index.html';
         } else {
-          alert(data.error || 'Invalid credentials.');
+          alert('Invalid username or password');
         }
       })
-      .catch(() => alert('Login failed, please try again.'));
+      .catch(err => {
+        console.error(err);
+        alert('Server error');
+      });
     });
   </script>
 </body>
